@@ -1,0 +1,1099 @@
+```html
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,
+initial-scale=1.0"
+    >
+
+    <title>ModelLens | AI Model Analyzer</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <header class="hero">
+
+        <div class="hero-glow"></div>
+
+        <div class="hero-content">
+
+            <div class="system-status">
+                ✦ AI SYSTEM ONLINE ✦
+            </div>
+
+            <h1>
+                MODEL LENS
+            </h1>
+
+            <h2>
+                AI MODEL ANALYZER
+            </h2>
+
+            <p class="hero-description">
+                Understand your model. See what it sees.
+            </p>
+
+            <div class="hero-tags">
+                ANALYZE
+                <span>•</span>
+                VISUALIZE
+                <span>•</span>
+                PREDICT
+            </div>
+
+            <button
+                type="button"
+                class="hero-button"
+                onclick="scrollToLearning()"
+            >
+                EXPLORE AI MODELS →
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         01 / LEARNING TYPE
+    ========================================== -->
+
+    <section
+        id="learning"
+        class="section"
+    >
+
+        <div class="section-heading">
+
+            <span class="section-number">
+                01 /
+            </span>
+
+            <div>
+
+                <h2>
+                    CHOOSE LEARNING TYPE
+                </h2>
+
+                <p>
+                    Select the learning approach used
+                    by your machine learning project.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="learning-grid">
+
+
+            <!-- SUPERVISED -->
+
+            <div
+                class="learning-card"
+                onclick="showExplorer('supervised')"
+            >
+
+                <div class="card-icon">
+                    ◎
+                </div>
+
+                <div class="card-code">
+                    TYPE / 01
+                </div>
+
+                <h3>
+                    SUPERVISED
+                </h3>
+
+                <p>
+                    Learn from labelled data and
+                    predict known outcomes.
+                </p>
+
+                <div class="card-topics">
+                    <span>Regression</span>
+                    <span>Classification</span>
+                    <span>Prediction</span>
+                </div>
+
+                <div class="card-arrow">
+                    EXPLORE →
+                </div>
+
+            </div>
+
+
+            <!-- UNSUPERVISED -->
+
+            <div
+                class="learning-card"
+                onclick="showExplorer('unsupervised')"
+            >
+
+                <div class="card-icon">
+                    ◈
+                </div>
+
+                <div class="card-code">
+                    TYPE / 02
+                </div>
+
+                <h3>
+                    UNSUPERVISED
+                </h3>
+
+                <p>
+                    Discover hidden structures and
+                    patterns without target labels.
+                </p>
+
+                <div class="card-topics">
+                    <span>Clustering</span>
+                    <span>PCA</span>
+                    <span>Patterns</span>
+                </div>
+
+                <div class="card-arrow">
+                    EXPLORE →
+                </div>
+
+            </div>
+
+
+            <!-- DEEP LEARNING -->
+
+            <div
+                class="learning-card"
+                onclick="showExplorer('deep')"
+            >
+
+                <div class="card-icon">
+                    ◉
+                </div>
+
+                <div class="card-code">
+                    TYPE / 03
+                </div>
+
+                <h3>
+                    DEEP LEARNING
+                </h3>
+
+                <p>
+                    Explore neural networks and
+                    modern AI architectures.
+                </p>
+
+                <div class="card-topics">
+                    <span>Neural Networks</span>
+                    <span>Computer Vision</span>
+                    <span>Transformers</span>
+                </div>
+
+                <div class="card-arrow">
+                    EXPLORE →
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         02 / MODEL EXPLORER
+    ========================================== -->
+
+    <section
+        id="explorer"
+        class="section hidden"
+    >
+
+        <div class="section-heading">
+
+            <span class="section-number">
+                02 /
+            </span>
+
+            <div>
+
+                <h2 id="explorer-title">
+                    MODEL EXPLORER
+                </h2>
+
+                <p id="explorer-description">
+                    Explore machine learning problem types.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="problem-area"></div>
+
+
+        <!-- =====================================
+             03 / ALGORITHMS
+        ====================================== -->
+
+        <div
+            id="algorithm-area"
+            class="hidden"
+        >
+
+            <div class="subsection-heading">
+
+                <span>
+                    03 /
+                </span>
+
+                <h2 id="algorithm-title">
+                    ALGORITHMS
+                </h2>
+
+            </div>
+
+
+            <div
+                id="algorithm-grid"
+                class="algorithm-grid"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         04 / PROJECT ANALYZER
+    ========================================== -->
+
+    <section
+        id="analysis"
+        class="section hidden"
+    >
+
+        <div class="section-heading">
+
+            <span class="section-number">
+                04 /
+            </span>
+
+            <div>
+
+                <h2>
+                    PROJECT ANALYZER
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- SELECTED MODEL -->
+
+        <div class="selected-model">
+
+            <div class="selected-label">
+                SELECTED ALGORITHM
+            </div>
+
+            <div
+                id="analysis-model"
+                class="selected-value"
+            >
+                —
+            </div>
+
+
+            <div class="selected-label">
+                PROBLEM TYPE
+            </div>
+
+            <div
+                id="analysis-problem"
+                class="selected-value"
+            >
+                —
+            </div>
+
+        </div>
+
+
+      <!-- PROJECT URL + CSV -->
+
+<div class="analyzer-card">
+
+    <div class="analyzer-top">
+
+        <div>
+            <div class="analyzer-label">
+                PROJECT CONNECTION
+            </div>
+
+            <p class="analyzer-subtitle">
+                Connect your running ML project and dataset.
+            </p>
+        </div>
+
+        <div class="analyzer-status">
+            <span class="status-dot"></span>
+            READY
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT URL -->
+
+    <div class="input-section">
+
+        <div class="input-title">
+            <span class="input-number">01</span>
+            RUNNING ML PROJECT URL
+        </div>
+
+        <div class="premium-input">
+
+            <span class="input-icon">↗</span>
+
+            <input
+                type="url"
+                id="project-url"
+                placeholder="Enter your running ML project URL"
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- CSV -->
+
+    <div class="input-section">
+
+        <div class="input-title">
+            <span class="input-number">02</span>
+            MODEL DATASET
+        </div>
+
+        <label
+            for="csv-file"
+            class="csv-upload"
+            id="csv-upload-box"
+        >
+
+            <div class="upload-icon">
+                ↑
+            </div>
+
+            <div class="upload-content">
+
+                <strong>
+                    SELECT CSV DATASET
+                </strong>
+
+                <span id="csv-file-name">
+                    Upload the dataset used to train your model
+                </span>
+
+            </div>
+
+            <div class="upload-arrow">
+                →
+            </div>
+
+        </label>
+
+        <input
+            type="file"
+            id="csv-file"
+            accept=".csv"
+            hidden
+        >
+
+    </div>
+
+
+    <!-- ANALYZE -->
+
+    <button
+        type="button"
+        class="analyze-button"
+        onclick="analyzeProject()"
+    >
+
+        <span class="analyze-icon">
+            ✦
+        </span>
+
+        <span>
+            ANALYZE PROJECT
+        </span>
+
+        <span class="analyze-arrow">
+            →
+        </span>
+
+    </button>
+
+
+    <div
+        id="connection-status"
+        class="connection-status"
+    ></div>
+
+</div>
+
+
+        <!-- =====================================
+             COMPLETE REPORT
+        ====================================== -->
+
+        <div
+            id="project-results"
+            class="hidden"
+        >
+
+
+            <!-- =================================
+                 MODEL LENS REPORT HEADER
+            ================================== -->
+
+            <div class="report-header">
+
+                <div class="report-code">
+                    MODEL LENS / REPORT
+                </div>
+
+                <h2>
+                    MODEL LENS REPORT
+                </h2>
+
+                <p>
+                    Automated analysis of your running
+                    machine learning project.
+                </p>
+
+            </div>
+
+
+            <!-- =================================
+                 01 / PROJECT OVERVIEW
+            ================================== -->
+
+            <div class="report-section">
+
+                <div class="report-section-heading">
+
+                    <span>
+                        01 /
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            PROJECT OVERVIEW
+                        </h3>
+
+                        <p>
+                            Basic information detected
+                            from the connected project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="metrics-grid">
+
+
+                    <div class="metric-card">
+
+                        <span class="metric-label">
+                            PROJECT
+                        </span>
+
+                        <strong id="result-project">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <span class="metric-label">
+                            ALGORITHM
+                        </span>
+
+                        <strong id="result-algorithm">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <span class="metric-label">
+                            PROBLEM
+                        </span>
+
+                        <strong id="result-problem">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="metric-card">
+
+                        <span class="metric-label">
+                            ENDPOINTS
+                        </span>
+
+                        <strong id="result-endpoints">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="status-card">
+
+                    <span>
+                        PROJECT STATUS
+                    </span>
+
+                    <strong id="result-status">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 02 / MODEL PERFORMANCE
+            ================================== -->
+
+            <div class="report-section">
+
+                <div class="report-section-heading">
+
+                    <span>
+                        02 /
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            MODEL PERFORMANCE
+                        </h3>
+
+                        <p>
+                            Performance metrics exposed
+                            by the connected ML project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="performance-grid">
+
+
+                    <div class="performance-card">
+
+                        <span>
+                            ACCURACY
+                        </span>
+
+                        <strong id="result-accuracy">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="performance-card">
+
+                        <span>
+                            PRECISION
+                        </span>
+
+                        <strong id="result-precision">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="performance-card">
+
+                        <span>
+                            RECALL
+                        </span>
+
+                        <strong id="result-recall">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="performance-card">
+
+                        <span>
+                            F1 SCORE
+                        </span>
+
+                        <strong id="result-f1">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="performance-card">
+
+                        <span>
+                            TESTING SCORE
+                        </span>
+
+                        <strong id="result-testing">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="performance-card">
+
+                        <span>
+                            MODEL TYPE
+                        </span>
+
+                        <strong id="result-model-type">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 03 / MODEL INFORMATION
+            ================================== -->
+
+            <div class="report-section">
+
+                <div class="report-section-heading">
+
+                    <span>
+                        03 /
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            MODEL INFORMATION
+                        </h3>
+
+                        <p>
+                            Technical information detected
+                            from the project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="model-information-grid">
+
+
+                    <div class="information-card">
+
+                        <span>
+                            MODEL TYPE
+                        </span>
+
+                        <strong id="detail-model-type">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-card">
+
+                        <span>
+                            PROBLEM TYPE
+                        </span>
+
+                        <strong id="detail-problem">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-card">
+
+                        <span>
+                            FEATURES
+                        </span>
+
+                        <strong id="detail-features">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="information-card">
+
+                        <span>
+                            TARGET
+                        </span>
+
+                        <strong id="detail-target">
+                            Not exposed
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 04 / API ANALYSIS
+            ================================== -->
+
+            <div class="report-section">
+
+                <div class="report-section-heading">
+
+                    <span>
+                        04 /
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            API ANALYSIS
+                        </h3>
+
+                        <p>
+                            Inspect the API structure exposed
+                            by the connected project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="api-analysis-card">
+
+                    <div class="api-summary-row">
+
+
+                        <div class="api-summary-item">
+
+                            <span>
+                                ENDPOINT COUNT
+                            </span>
+
+                            <strong id="api-endpoint-count">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div class="api-summary-item">
+
+                            <span>
+                                PREDICTION API
+                            </span>
+
+                            <strong id="api-prediction">
+                                Not detected
+                            </strong>
+
+                        </div>
+
+
+                        <div class="api-summary-item">
+
+                            <span>
+                                DOCUMENTATION
+                            </span>
+
+                            <strong id="api-documentation">
+                                Not detected
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="endpoint-area">
+
+                        <div class="endpoint-title">
+                            ENDPOINTS DETECTED
+                        </div>
+
+                        <div
+                            id="detected-endpoints"
+                            class="endpoint-list"
+                        >
+
+                            <div class="endpoint-empty">
+                                No endpoints analyzed yet.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 05 / PROJECT REVIEW
+            ================================== -->
+
+            <div class="report-section">
+
+                <div class="report-section-heading">
+
+                    <span>
+                        05 /
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            PROJECT REVIEW
+                        </h3>
+
+                        <p>
+                            Identify missing components and
+                            possible improvements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="review-grid">
+
+
+                    <div class="review-card">
+
+                        <div class="review-card-heading">
+
+                            <span>
+                                !
+                            </span>
+
+                            <h3>
+                                WHAT IS LACKING
+                            </h3>
+
+                        </div>
+
+
+                        <div
+                            id="missing-items"
+                            class="review-list"
+                        >
+
+                            <div class="review-item missing">
+
+                                <span>
+                                    !
+                                </span>
+
+                                <p>
+                                    Analysis not completed yet.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="review-card">
+
+                        <div class="review-card-heading">
+
+                            <span>
+                                →
+                            </span>
+
+                            <h3>
+                                HOW TO IMPROVE
+                            </h3>
+
+                        </div>
+
+
+                        <div
+                            id="improvement-items"
+                            class="review-list"
+                        >
+
+                            <div class="review-item improvement">
+
+                                <span>
+                                    →
+                                </span>
+
+                                <p>
+                                    Connect a project to receive
+                                    improvement suggestions.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 06 / MODEL LENS INSIGHT
+            ================================== -->
+
+            <div class="report-section insight-section">
+
+                <div class="report-section-heading">
+
+                    <span>
+                        06 /
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            MODEL LENS INSIGHT
+                        </h3>
+
+                        <p>
+                            Final automated interpretation
+                            of the connected project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="insight-card">
+
+                    <div class="insight-symbol">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <div class="insight-label">
+                            ANALYSIS SUMMARY
+                        </div>
+
+                        <p
+                            id="analysis-summary"
+                            class="analysis-summary"
+                        >
+                            Project analysis will appear here
+                            after you connect your ML project.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 REPORT COMPLETE
+            ================================== -->
+
+            <div
+                id="report-complete"
+                class="report-complete"
+            >
+
+                <span>
+                    ✦
+                </span>
+
+                MODEL LENS ANALYSIS COMPLETE
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script
+        src="/static/js/app.js"
+    ></script>
+
+</body>
+
+</html>
+```
