@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request, UploadFile, File, Form
+from fastapi.responses import PlainTextResponse
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -864,3 +865,8 @@ async def upload_csv(file: UploadFile = File(...)):
             "success": False,
             "error": str(e)
         }
+@app.get("/robots.txt", response_class=PlainTextResponse)
+async def robots_txt():
+    return """User-agent: *
+Allow: /
+"""
