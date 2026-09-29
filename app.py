@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request, UploadFile, File, Form
-from fastapi.responses import PlainTextResponse
+from fastapi.responses import PlainTextResponse,Response
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -877,17 +877,20 @@ Sitemap: {base_url}/sitemap.xml
 """
 
 
-@app.get("/sitemap.xml", response_class=PlainTextResponse)
+@app.get("/sitemap.xml")
 async def sitemap_xml(request: Request):
 
     base_url = str(request.base_url).rstrip("/")
 
-    return f"""<?xml version="1.0" encoding="UTF-8"?>
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
     <url>
         <loc>{base_url}/</loc>
     </url>
-
 </urlset>
 """
+
+    return Response(
+        content=xml,
+        media_type="application/xml"
+    )
