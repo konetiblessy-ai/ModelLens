@@ -866,7 +866,28 @@ async def upload_csv(file: UploadFile = File(...)):
             "error": str(e)
         }
 @app.get("/robots.txt", response_class=PlainTextResponse)
-async def robots_txt():
-    return """User-agent: *
+async def robots_txt(request: Request):
+
+    base_url = str(request.base_url).rstrip("/")
+
+    return f"""User-agent: *
 Allow: /
+
+Sitemap: {base_url}/sitemap.xml
+"""
+
+
+@app.get("/sitemap.xml", response_class=PlainTextResponse)
+async def sitemap_xml(request: Request):
+
+    base_url = str(request.base_url).rstrip("/")
+
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>{base_url}/</loc>
+    </url>
+
+</urlset>
 """
