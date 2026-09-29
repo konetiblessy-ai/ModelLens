@@ -892,5 +892,5 @@ async def sitemap_xml(request: Request):
 
     return Response(
         content=xml,
-        media_type="application/xml"
+        media_type="text/xml"
     )
